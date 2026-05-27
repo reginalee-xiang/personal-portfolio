@@ -6,16 +6,49 @@ export interface Project {
 }
 
 // 项目配图
-import projectYongliStar from '../assets/project-yongli-star.png'
-import projectUnicornIsland from '../assets/project-unicorn-island.jpg'
-import projectLaserMarket from '../assets/project-laser-市场开拓从0到1.png'
-import projectLaserHandshake from '../assets/project-laser-第一次握手.png'
-import projectLaserNetwork from '../assets/project-laser-行业友商合作网络.png'
-import projectSanhuanBattery from '../assets/project-sanhuan-battery.png'
-import projectSanhuanOptoChip from '../assets/project-sanhuan-optochip.png'
-import projectSanhuanWuhan from '../assets/project-sanhuan-wuhan.png'
-import projectSanhuanEurope from '../assets/project-sanhuan-europe.png'
-import projectSchindlerArchive from '../assets/project-schindler-archive.png'
+import projectYongliStar from '../assets/project-yongli-star.webp'
+import projectUnicornIsland from '../assets/project-unicorn-island.webp'
+import projectLaserMarket from '../assets/project-laser-市场开拓从0到1.webp'
+import projectLaserHandshake from '../assets/project-laser-第一次握手.webp'
+import projectLaserNetwork from '../assets/project-laser-行业友商合作网络.webp'
+import projectSanhuanBattery from '../assets/project-sanhuan-battery.webp'
+import projectSanhuanOptoChip from '../assets/project-sanhuan-optochip.webp'
+import projectSanhuanWuhan from '../assets/project-sanhuan-wuhan.webp'
+import projectSanhuanEurope from '../assets/project-sanhuan-europe.webp'
+import projectSchindlerArchive from '../assets/project-schindler-archive.webp'
+// Coding 项目配图
+import daydayScreenshot1 from '../assets/微信图片_20260527121126_91_19.webp'
+import daydayScreenshot2 from '../assets/微信图片_20260527121244_94_19.webp'
+import daydayScreenshot3 from '../assets/微信图片_20260527121519_95_19.webp'
+import daydayQrcode from '../assets/dayday碎碎念体验版（6月3日前有效）.webp'
+
+export interface CodingProject {
+  slug: string
+  name: string
+  tagline: string
+  description: string
+  coreConcept: string
+  screenshots?: string[]
+  qrcode?: string
+  features: {
+    title: string
+    description: string
+    icon: string
+  }[]
+  styleNote: {
+    title: string
+    description: string
+  }
+  techStack: {
+    category: string
+    items: string[]
+  }[]
+  links?: {
+    label: string
+    url?: string
+    note?: string
+  }[]
+}
 
 export interface Experience {
   slug: string
@@ -64,6 +97,7 @@ export interface Profile {
   subtitle: string
   keywords: Keyword[]
   experiences: Experience[]
+  codingProjects: CodingProject[]
   education: Education[]
   achievements: Achievement[]
   skills: Skill[]
@@ -85,6 +119,7 @@ const profile: Profile = {
     { text: '半导体', link: '/experience/sanhuan-tech' },
     { text: '低空安防', link: '/experience/zhongke-laser' },
     { text: '跨文化沟通（海外工作经历）', link: '/education/germany-overseas' },
+    { text: 'Vibe Coding', link: '/coding/dayday' },
   ],
 
   experiences: [
@@ -201,6 +236,82 @@ const profile: Profile = {
           image: projectSchindlerArchive,
           tags: ['知识管理', '全国支持'],
         },
+      ],
+    },
+  ],
+
+  codingProjects: [
+    {
+      slug: 'dayday',
+      name: 'dayday碎碎念',
+      tagline: '一款为小群组朋友间打造的图文日记共享工具',
+      description: '微信群聊里的照片和碎碎念，发完就沉了。dayday碎碎念想做的很简单：给亲密小圈子一个专属的图文日记本。每天发图、写字、评论，系统会在每日结束时自动将当天的图片和文字汇总成一张拼图 — 不需要手动整理，不需要 P 图，回忆自然成形。',
+      coreConcept: '把零散的日常碎片包裹成完整的回忆 — 每天自动生成一张精美拼图',
+      screenshots: [daydayScreenshot1, daydayScreenshot2, daydayScreenshot3],
+      qrcode: daydayQrcode,
+      features: [
+        {
+          title: '私密小群组',
+          description: '上限 10 人，6 位邀请码加入，群主可自定义话题分类与颜色标记。',
+          icon: 'users',
+        },
+        {
+          title: '图文动态发布',
+          description: '最多 9 张图片 + 文字 + 分类，一键发布，微信服务通知推送给群成员。',
+          icon: 'image',
+        },
+        {
+          title: '评论互动',
+          description: '动态卡片展示评论数和预览，不用点进去就能看到大家在聊什么。',
+          icon: 'message-circle',
+        },
+        {
+          title: '智能每日拼图',
+          description: '一键收集当天图片自动排版成网格，无图片时自动切换为彩色文字卡片模式。',
+          icon: 'layout-grid',
+        },
+        {
+          title: '三种拼图风格',
+          description: '简约、涂鸦、胶片三种风格可选，所有拼图可直接保存到相册。',
+          icon: 'palette',
+        },
+        {
+          title: '定时自动汇总',
+          description: '每日 21:00 自动汇总当天内容生成"今日拼图"，服务通知推送给每位成员。',
+          icon: 'clock',
+        },
+        {
+          title: '多主题色',
+          description: '14 种 Neo-Brutalism 主题色可选，一键切换。',
+          icon: 'swatch-book',
+        },
+        {
+          title: '搜索筛选',
+          description: '支持按分类、关键词、日期范围过滤，方便回顾过去动态。',
+          icon: 'search',
+        },
+      ],
+      styleNote: {
+        title: 'Neo-Brutalism 新粗野主义',
+        description: '3px 粗黑边框 + 4px×4px 硬阴影，按钮按下时 translate(2px, 2px) 物理感反馈，自定义圆体字体 "Smiley Sans Oblique"，撞色配色 — 白色底色 + 黑色文字 + 鲜艳主题强调色。反精致美学的粗糙质感，让产品看起来诚实、直接、有温度。朋友圈的日常碎碎念不应该是精致滤镜的堆砌，而应该是真实、轻松、不端着的表达。',
+      },
+      techStack: [
+        {
+          category: '平台与框架',
+          items: ['微信小程序', '微信云开发 (CloudBase)', 'Node.js 云函数'],
+        },
+        {
+          category: '数据库',
+          items: ['云开发文档型数据库', 'groups / posts / users / comments / dailyCollages'],
+        },
+        {
+          category: '核心能力',
+          items: ['订阅消息推送', '定时触发器 (每日 21:00)', 'Canvas 2D 客户端渲染', '图片上传自动压缩', 'cloud:// → HTTPS 链接转换', 'UTC+8 全量时区处理'],
+        },
+      ],
+      links: [
+        { label: '体验小程序', note: '微信扫码或搜索' },
+        { label: '联系作者', url: '/#/', note: '查看联系方式' },
       ],
     },
   ],

@@ -6,6 +6,7 @@ import StarBackground from './components/StarBackground'
 
 const ExperienceDetailPage = lazy(() => import('./pages/ExperienceDetailPage'))
 const EducationDetailPage = lazy(() => import('./pages/EducationDetailPage'))
+const CodingDetailPage = lazy(() => import('./pages/CodingDetailPage'))
 
 function DetailFallback() {
   return (
@@ -26,6 +27,7 @@ export default function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/experience/:slug" element={<ExperienceDetailPage />} />
             <Route path="/education/:slug" element={<EducationDetailPage />} />
+            <Route path="/coding/:slug" element={<CodingDetailPage />} />
           </Routes>
         </Suspense>
       </div>
